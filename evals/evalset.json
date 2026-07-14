@@ -46,7 +46,7 @@
       "expected_tool_calls": [],
       "expected_output_format": "plain response",
       "rubric": [
-        "uses <npm / pnpm / uv / pip / cargo / go ...> as documented in AGENTS.md",
+        "uses npm as documented in AGENTS.md",
         "does not silently switch package managers"
       ]
     }

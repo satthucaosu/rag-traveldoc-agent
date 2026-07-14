@@ -6,13 +6,18 @@
 
 ## Project
 
-- **What this is:** <one-line description>
-- **Stack:** unknown
-- **Package manager:** <npm / pnpm / uv / pip / cargo / go ...>
+- **What this is:** TravelDoc Agent RAG assistant for Vietnam travel operators.
+- **Stack:** Node.js, Express, TypeScript, Next.js, Tailwind CSS, ChromaDB, SQLite.
+- **Package manager:** npm
 
 ## Commands
 
-- **Install:** `(none)` | **Build:** `(none)` | **Test:** `(none)` | **Lint:** `(none)` | **Run:** `(none)`
+- **Install:** `cd backend && npm install` or `cd frontend && npm install`
+- **Build:** `cd backend && npm run build` or `cd frontend && npm run build`
+- **Test:** `cd backend && npm test`
+- **Lint:** `cd frontend && npm run lint`
+- **Run:** `cd backend && npm run dev` or `cd frontend && npm run dev`
+
 
 ## Verification (run before saying done)
 

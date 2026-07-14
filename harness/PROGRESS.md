@@ -4,24 +4,25 @@ Update this file **before ending every agent session**. Read it **first** when s
 
 ## Current task
 
-- **Spec:** `specs/<name>.md` (or N/A for trivial fixes)
-- **Status:** not started | in progress | blocked | done
-- **Owner / last session:** <name or date>
+- **Spec:** `specs/000-starter-smoke.spec.md`
+- **Status:** done
+- **Owner / last session:** Antigravity (2026-07-14)
 
 ## Done
 
-- [ ] _(move completed items here)_
+- [x] Day 0: Harness scaffolding initialized, directories created, Next.js frontend built, packages installed, git committed and pushed to remote origin.
 
 ## In progress
 
-- _(what is actively being worked on)_
+- None (Day 0 finished)
 
 ## Blocked / needs human
 
-- _(decisions, credentials, ambiguous requirements)_
+- None
 
 ## Next session
 
-1. Read this file and the linked spec.
-2. Run `./scripts/check.sh` to confirm baseline.
-3. Continue from **In progress** or pick the next item.
+1. Read this file.
+2. Start Day 1: Create backend Express skeleton (`backend/src/index.ts`, `backend/src/routes/documents.ts`, `backend/src/types/index.ts`).
+3. Run verification command.
+
