@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "example-stdio": {
+      "command": "<command>",
+      "args": ["<arg1>", "<arg2>"],
+      "env": {
+        "API_TOKEN": "${ENV_API_TOKEN}"
+      }
+    },
+    "example-remote": {
+      "serverUrl": "https://<host>/mcp",
+      "headers": {
+        "Authorization": "Bearer ${ENV_API_TOKEN}"
+      }
+    }
+  }
+}

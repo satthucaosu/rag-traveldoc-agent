@@ -1,0 +1,20 @@
+{
+  "$comment": "MCP server config. Connect tools without writing bespoke integrations. NEVER hardcode credentials here - reference environment variables. Audit any public/community server before connecting it to anything with filesystem or credential access. Use a dev project with non-production data; prefer read-only.",
+  "mcpServers": {
+    "example-stdio": {
+      "$comment": "Local subprocess over stdio - good for prototyping.",
+      "command": "<command>",
+      "args": ["<arg1>", "<arg2>"],
+      "env": {
+        "API_TOKEN": "${ENV_API_TOKEN}"
+      }
+    },
+    "example-remote": {
+      "$comment": "Remote endpoint over HTTP/SSE - vetted, hosted server.",
+      "url": "https://<host>/mcp",
+      "env": {
+        "API_TOKEN": "${ENV_API_TOKEN}"
+      }
+    }
+  }
+}

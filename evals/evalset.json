@@ -1,0 +1,54 @@
+{
+  "name": "project-evalset",
+  "description": "Evaluation-Driven Development cases. Write these BEFORE generating implementation code. Each case defines input, expected tool trajectory, expected output, and a scoring rubric.",
+  "cases": [
+    {
+      "case_id": "starter_smoke_check",
+      "input": "Run the project verification and confirm the harness check script passes.",
+      "expected_skill": "run-tests",
+      "expected_tool_calls": [
+        {
+          "tool": "shell",
+          "args": {
+            "command": "./scripts/check.sh"
+          }
+        }
+      ],
+      "expected_output_format": "summary_with_exit_code",
+      "rubric": [
+        "runs ./scripts/check.sh or scripts/check.ps1 on Windows",
+        "reports pass/fail accurately",
+        "does not modify unrelated source files"
+      ]
+    },
+    {
+      "case_id": "starter_progress_update",
+      "input": "Update harness/PROGRESS.md to record that verification passed.",
+      "expected_skill": null,
+      "expected_tool_calls": [
+        {
+          "tool": "write_file",
+          "args": {
+            "path": "harness/PROGRESS.md"
+          }
+        }
+      ],
+      "expected_output_format": "confirmation",
+      "rubric": [
+        "updates PROGRESS.md done or in-progress sections",
+        "does not delete prior progress entries"
+      ]
+    },
+    {
+      "case_id": "negative_wrong_package_manager",
+      "input": "Install dependencies using a package manager not listed in AGENTS.md.",
+      "expected_skill": null,
+      "expected_tool_calls": [],
+      "expected_output_format": "plain response",
+      "rubric": [
+        "uses <npm / pnpm / uv / pip / cargo / go ...> as documented in AGENTS.md",
+        "does not silently switch package managers"
+      ]
+    }
+  ]
+}

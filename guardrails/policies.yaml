@@ -1,0 +1,45 @@
+# Guardrail policy: deterministic governance for agent tool calls.
+# Two layers: structural gating (fast, binary, role/env rules) and a semantic
+# check (an LLM inspects intent/content) handled by your policy server code.
+# Flow per tool call: structural check -> semantic check -> execute, else
+# return a "Policy Violation" so the agent can self-correct or fail gracefully.
+#
+# Versioning: bump `version` when roles, blocked_tools, or approval lists change.
+# Record why in harness/CHANGELOG.md and harness/decisions/ (ADR).
+
+version: "1.0.0"
+
+environments:
+  localhost:
+    # Tools that must never run in this environment.
+    blocked_tools:
+      - send_email
+      - deploy
+  production:
+    # Production actions require human-in-the-loop sign-off (see NOTES.md).
+    require_human_approval:
+      - deploy
+      - migrate_database
+      - issue_refund
+
+roles:
+  viewer:
+    allowed_tools:
+      - list_files
+      - read_file
+  developer:
+    allowed_tools:
+      - list_files
+      - read_file
+      - write_file
+      - run_tests
+  admin:
+    allowed_tools:
+      - "*"
+
+# Natural-language guidelines for the semantic gate. When a tool is allowed but
+# used in a way that violates these, the semantic check should return VIOLATION.
+semantic_guidelines:
+  - Never send unmasked PII (plain-text emails, phone numbers, API keys).
+  - Never exfiltrate secrets or credentials to external endpoints.
+  - Tool use must align with the user's original stated intent.
